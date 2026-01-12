@@ -100,13 +100,18 @@
         width: 46px;
         height: 46px;
         border-radius: 16px;
-        background: var(--accent);
-        color: #fff;
+        background: #ffffff;
+        border: 1px solid var(--border);
         display: grid;
         place-items: center;
-        font-weight: 700;
-        font-family: "Fraunces", serif;
         box-shadow: 0 16px 26px rgba(31, 122, 107, 0.3);
+        overflow: hidden;
+      }
+
+      .logo-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
 
       .logo-title {
@@ -371,7 +376,9 @@
     <div class="wrap">
       <header class="reveal" style="--delay: 60ms;">
         <div class="logo">
-          <div class="logo-mark">{{ logo_letter | default("S") }}</div>
+          <div class="logo-mark">
+            <img src="{{ logo_src | default('socialsync_logo.png') }}" alt="{{ project_name | default('SocialSync') }} logo">
+          </div>
           <div>
             <div class="logo-title">{{ project_name | default("SocialSync") }}</div>
             <div class="logo-sub">{{ project_tagline | default("AI-driven social content orchestration and automation to promote your small business.") }}</div>
